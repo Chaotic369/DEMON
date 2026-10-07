@@ -8,7 +8,7 @@
 :root{
   --ink:#fcfaf5;
   --panel:#fcfaf5;
-  --field:rgba(0,0,0,0.08);
+  --field:rgba(0,0,0,0.15);
   --hair:transparent;
   --text:#2d2a27;
   --dim:#857f78;
@@ -17,14 +17,14 @@
   --neu-flat:none;
   --neu-pressed:none;
   --neu-subtle:none;
-  --glass-bg:rgba(0,0,0,0.08);
+  --glass-bg:rgba(0,0,0,0.15);
   --glass-border:transparent;
   --glass-blur:none;
 }
 :root.dark-theme{
-  --ink:#051316;
+  --ink:#020709;
   --panel:rgba(8, 18, 36, 0.8);
-  --field:rgba(0,0,0,0.25);
+  --field:rgba(0,0,0,0.45);
   --hair:transparent;
   --text:#ffffff;
   --dim:rgba(255, 255, 255, 0.6);
@@ -33,7 +33,7 @@
   --neu-flat:none;
   --neu-pressed:none;
   --neu-subtle:none;
-  --glass-bg:rgba(0,0,0,0.25);
+  --glass-bg:rgba(0,0,0,0.45);
   --glass-border:transparent;
   --glass-blur:none;
 }
@@ -94,14 +94,15 @@ input[type=text]:focus{border:none;}
 
   <div id="miniWrap" style="position:relative;width:100%;flex:none;height:52vh;margin:0 auto 14px;max-width:336px;align-self:center;">
       <div style="position:absolute;inset:-8px;background:var(--field);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:36px;z-index:0;"></div>
-      <div id="miniBox" style="width:100%;height:100%;background:#000000;border-radius:28px;overflow:hidden;position:absolute;inset:0;z-index:1;">
+      <div id="miniBox" style="width:100%;height:100%;background:#000000 url('data:image/jpeg;base64,PASTE_YOUR_BASE64_STRING_HERE') center/cover no-repeat;border-radius:28px;overflow:hidden;position:absolute;inset:0;z-index:1;">
               <iframe id="miniFrame" style="width:100%;height:100%;border:none;display:none;position:absolute;top:0;left:0;transform-origin:top left;" sandbox="allow-scripts allow-same-origin"></iframe>
               <video id="miniVideo" style="width:100%;height:100%;object-fit:cover;display:none;position:absolute;top:0;left:0;" autoplay loop muted playsinline></video>
-              <span id="miniLabel" style="color:#ffffff;background:rgba(0,0,0,0.25);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:18px;border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:1;display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></span>
-            </div>
+              <span id="miniLabel" style="color:#ffffff;background:rgba(0,0,0,0.45);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:18px;border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:1;display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></span>
+                      <div id="miniWebWarning" style="display:none;position:absolute;top:20px;left:16px;right:16px;background:rgba(0,0,0,0.65);color:#fff;font-size:9px;font-weight:600;padding:8px 12px;border-radius:10px;text-align:center;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:3;line-height:1.4;">Live preview may be blocked by the website owner, but it will still apply successfully.</div>
+                    </div>
       <button type="button" id="muteBtn" style="display:none;position:absolute;bottom:12px;right:12px;width:36px;height:36px;padding:0;border:none;background:var(--panel);color:var(--text);border-radius:18px;cursor:pointer;align-items:center;justify-content:center;z-index:2;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
-        <svg id="muteIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-      </button>
+              <svg id="muteIcon" viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor;"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+            </button>
     </div>
 
   <div class="control-row">
@@ -220,8 +221,8 @@ input[type=text]:focus{border:none;}
 <script>
 const A = window.Android || null;       // native bridge (null when opened in a normal browser)
 const $ = id => document.getElementById(id);
-const MUTED_ICON = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line>';
-const SOUND_ICON = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>';
+const MUTED_ICON = '<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>';
+const SOUND_ICON = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>';
 
 function mUrl(u){ try{ if(A&&A.mediaUrl&&u&&u.indexOf('appassets.local/files/')>-1){ const m=A.mediaUrl(u); if(m) return m; } }catch(e){} return u; }
 const urlInput=$('urlInput'), applyBtn=$('applyBtn'), statusRow=$('statusRow');
@@ -266,7 +267,8 @@ function setDark(d){
 $('bgPreviewBtn').addEventListener('click',()=>{ $('bgInput').click(); });$('bgInput').addEventListener('change',e=>{
   if(e.target.files.length>0){
     const u=URL.createObjectURL(e.target.files[0]);
-    document.body.style.background=`url(${u}) center/cover no-repeat fixed`;
+    document.body.style.background=`linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${u}) center/cover no-repeat fixed`;
+    $('miniBox').style.background=`#000000 url(${u}) center/cover no-repeat`;
   }
 });
 $('configBtn').addEventListener('click',()=>{ mainSettings.style.display='none'; configView.style.display='flex'; });$('configBackBtn').addEventListener('click',()=>{ configView.style.display='none'; mainSettings.style.display='flex'; });
@@ -392,6 +394,7 @@ function showPreview(){
   if(savedType==='web'||savedType==='html'){ miniFrame.src=savedUrl; miniFrame.style.display='block'; }
   else { miniVideo.src=mUrl(savedUrl); miniVideo.style.display='block'; miniVideo.muted=true; miniVideo.loop=true; miniVideo.play().catch(()=>{}); }
   muteIcon.innerHTML=MUTED_ICON; muteBtn.style.display='flex';
+  $('miniWebWarning').style.display = savedType==='web' ? 'block' : 'none';
   miniVideo.style.objectFit = scaleSelect.value==='Stretch'?'fill':scaleSelect.value==='Fit'?'contain':'cover';
 }
 muteBtn.addEventListener('click',e=>{
