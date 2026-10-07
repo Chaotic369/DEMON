@@ -40,6 +40,7 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 ::selection{background:var(--accent);color:var(--ink);}
 html,body{min-height:100%;background:var(--ink);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+body.test-bg{background:url('https://picsum.photos/1080/1920?random=1') center/cover no-repeat fixed !important;}
 body{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:0;margin:0;overflow:hidden;width:100vw;height:100dvh;}
 .stage{display:flex;flex-direction:column;align-items:center;width:100%;height:100%;}
 .phone{width:100%;height:100%;background:transparent;position:relative;}
@@ -86,7 +87,8 @@ input[type=text]:focus{border:none;}
 
 <!-- MAIN -->
 <div class="settings" id="mainSettings" style="padding-top:8px;">
-  <div style="width:100%;display:flex;justify-content:flex-end;align-items:center;margin-bottom:4px;z-index:10;padding:4px 8px;">
+  <div style="width:100%;display:flex;justify-content:flex-end;align-items:center;margin-bottom:4px;z-index:10;padding:4px 8px;gap:16px;">
+      <svg id="bgPreviewBtn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;cursor:pointer;color:var(--text);" title="Try Background"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
       <svg id="configBtn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;cursor:pointer;color:var(--text);"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
     </div>
 
@@ -261,6 +263,7 @@ function setDark(d){
   localStorage.setItem('dark',d?'1':'0');
   if(A) A.setTheme(d);
 }
+$('bgPreviewBtn').addEventListener('click',()=>{ document.body.classList.toggle('test-bg'); });
 $('configBtn').addEventListener('click',()=>{ mainSettings.style.display='none'; configView.style.display='flex'; });
 $('configBackBtn').addEventListener('click',()=>{ configView.style.display='none'; mainSettings.style.display='flex'; });
 $('historyBtn').addEventListener('click',()=>{ mainSettings.style.display='none'; historyView.style.display='flex'; });
