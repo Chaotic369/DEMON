@@ -153,29 +153,29 @@ input[type=text]:focus{border:none;}
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-top:4px;">
       <button id="configBackBtn" style="background:transparent;border:none;color:var(--text);font-size:12px;cursor:pointer;font-weight:700;display:flex;align-items:center;gap:4px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Back</button>
     </div>
-  <div style="display:flex;flex-direction:column;background:rgba(0, 0, 0, 0.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:16px;padding:16px;gap:4px;">
-        <div style="font-size:9px;color:var(--dim);font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding-bottom:6px;">Playback</div>
-        <div style="display:flex;gap:8px;width:100%;margin-bottom:10px;">
-          <div class="field-wrap" style="flex:1;position:relative;">
-            <label style="color:var(--text);font-size:9px;font-weight:700;text-transform:uppercase;">Framerate</label>
-            <button type="button" id="fpsSelectBtn" class="btn" style="justify-content:space-between;padding:0 10px;font-weight:500;text-transform:none;font-size:10px;background:rgba(0, 0, 0, 0.3);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;"><span id="fpsSelectLabel">Default</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px;flex:none;"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-            <div id="fpsOptList" style="display:none;position:absolute;top:100%;left:0;width:100%;margin-top:4px;background:rgba(0, 0, 0, 0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:12px;box-shadow:0 10px 20px rgba(0,0,0,.5);z-index:25;overflow:hidden;flex-direction:column;">
-              <button type="button" class="fps-opt" data-val="Default" style="width:100%;text-align:left;padding:8px 10px;font-size:10px;background:transparent;border:none;color:var(--text);cursor:pointer;">Default</button>
-              <button type="button" class="fps-opt" data-val="60 FPS" style="width:100%;text-align:left;padding:8px 10px;font-size:10px;background:transparent;border:none;color:var(--text);cursor:pointer;">60 FPS</button>
-              <button type="button" class="fps-opt" data-val="30 FPS" style="width:100%;text-align:left;padding:8px 10px;font-size:10px;background:transparent;border:none;color:var(--text);cursor:pointer;">30 FPS</button>
-              <button type="button" class="fps-opt" data-val="Uncapped" style="width:100%;text-align:left;padding:8px 10px;font-size:10px;background:transparent;border:none;color:var(--text);cursor:pointer;">Uncapped</button>
+  <div style="display:flex;flex-direction:column;background:rgba(0, 0, 0, 0.3);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:16px;padding:16px;gap:4px;">
+          <div style="font-size:9px;color:var(--dim);font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding-bottom:6px;">Playback</div>
+          <div style="display:flex;gap:8px;width:100%;margin-bottom:10px;">
+            <div class="field-wrap" style="flex:1;position:relative;">
+              <label style="color:var(--text);font-size:9px;font-weight:700;text-transform:uppercase;">Framerate</label>
+              <button type="button" id="fpsSelectBtn" class="btn" style="justify-content:space-between;padding:0 10px;font-weight:500;text-transform:none;font-size:10px;background:rgba(0, 0, 0, 0.2);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;"><span id="fpsSelectLabel">Default</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px;flex:none;"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+              <div id="fpsOptList" style="display:none;position:absolute;top:100%;left:0;width:100%;margin-top:4px;background:rgba(0, 0, 0, 0.5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:12px;box-shadow:0 10px 20px rgba(0,0,0,.5);z-index:25;overflow:hidden;flex-direction:column;">
+                <button type="button" class="fps-opt" data-val="Default" style="width:100%;text-align:left;padding:8px 10px;font-size:10px;background:transparent;border:none;color:var(--text);cursor:pointer;">Default</button>
+                <button type="button" class="fps-opt" data-val="60 FPS" style="width:100%;text-align:left;padding:8px 10px;font-size:10px;background:transparent;border:none;color:var(--text);cursor:pointer;">60 FPS</button>
+                <button type="button" class="fps-opt" data-val="30 FPS" style="width:100%;text-align:left;padding:8px 10px;font-size:10px;background:transparent;border:none;color:var(--text);cursor:pointer;">30 FPS</button>
+                <button type="button" class="fps-opt" data-val="Uncapped" style="width:100%;text-align:left;padding:8px 10px;font-size:10px;background:transparent;border:none;color:var(--text);cursor:pointer;">Uncapped</button>
+              </div>
+            </div>
+            <div class="field-wrap" style="flex:1;position:relative;">
+              <label style="color:var(--text);font-size:9px;font-weight:700;text-transform:uppercase;">Scale Mode</label>
+              <button type="button" id="scaleSelectBtn" class="btn" style="justify-content:space-between;padding:0 10px;font-weight:500;text-transform:none;font-size:10px;background:rgba(0, 0, 0, 0.2);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;"><span id="scaleSelectLabel">Center Crop</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px;flex:none;"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+              <div id="scaleOptList" style="display:none;position:absolute;top:100%;left:0;width:100%;margin-top:4px;background:rgba(0, 0, 0, 0.5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:12px;box-shadow:0 10px 20px rgba(0,0,0,.5);z-index:25;overflow:hidden;flex-direction:column;">
+                <button type="button" class="scale-opt" data-val="Center Crop" style="width:100%;text-align:left;padding:8px 10px;font-size:10px;background:transparent;border:none;color:var(--text);cursor:pointer;">Center Crop</button>
+                <button type="button" class="scale-opt" data-val="Fit" style="width:100%;text-align:left;padding:8px 10px;font-size:10px;background:transparent;border:none;color:var(--text);cursor:pointer;">Fit</button>
+                <button type="button" class="scale-opt" data-val="Stretch" style="width:100%;text-align:left;padding:8px 10px;font-size:10px;background:transparent;border:none;color:var(--text);cursor:pointer;">Stretch</button>
+              </div>
             </div>
           </div>
-          <div class="field-wrap" style="flex:1;position:relative;">
-            <label style="color:var(--text);font-size:9px;font-weight:700;text-transform:uppercase;">Scale Mode</label>
-            <button type="button" id="scaleSelectBtn" class="btn" style="justify-content:space-between;padding:0 10px;font-weight:500;text-transform:none;font-size:10px;background:rgba(0, 0, 0, 0.3);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;"><span id="scaleSelectLabel">Center Crop</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px;flex:none;"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-            <div id="scaleOptList" style="display:none;position:absolute;top:100%;left:0;width:100%;margin-top:4px;background:rgba(0, 0, 0, 0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:12px;box-shadow:0 10px 20px rgba(0,0,0,.5);z-index:25;overflow:hidden;flex-direction:column;">
-              <button type="button" class="scale-opt" data-val="Center Crop" style="width:100%;text-align:left;padding:8px 10px;font-size:10px;background:transparent;border:none;color:var(--text);cursor:pointer;">Center Crop</button>
-              <button type="button" class="scale-opt" data-val="Fit" style="width:100%;text-align:left;padding:8px 10px;font-size:10px;background:transparent;border:none;color:var(--text);cursor:pointer;">Fit</button>
-              <button type="button" class="scale-opt" data-val="Stretch" style="width:100%;text-align:left;padding:8px 10px;font-size:10px;background:transparent;border:none;color:var(--text);cursor:pointer;">Stretch</button>
-            </div>
-          </div>
-        </div>
 
         <div style="width:100%;height:1px;background:var(--dim);opacity:0.1;margin:4px 0;"></div>
 
@@ -194,12 +194,12 @@ input[type=text]:focus{border:none;}
         <div class="toggle-wrap" style="background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;padding:10px 0;"><span class="toggle-label">Touch Pass-through</span><div class="toggle active" id="touchToggle"></div></div>
 
         <div style="position:relative;width:100%;margin-top:12px;">
-          <button class="btn" id="purgeBtn" style="background:rgba(0, 0, 0, 0.2);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;color:var(--dim);margin-top:0;height:44px;border-radius:12px;">Clear Asset Cache</button>
-          <div id="purgeConfirmPopup" style="display:none;position:absolute;bottom:115%;left:50%;transform:translateX(-50%);background:rgba(0, 0, 0, 0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:8px;border-radius:12px;box-shadow:0 10px 20px rgba(0,0,0,.5);z-index:20;flex-direction:column;gap:8px;min-width:120px;text-align:center;">
-            <span style="font-size:10px;color:var(--text);font-weight:600;">Confirm clear cache?</span>
-            <button id="purgeConfirmBtn" class="btn" style="background:rgba(255,80,80,.15);color:#ff5555;">Clear</button>
-          </div>
-        </div>
+                  <button class="btn" id="purgeBtn" style="background:rgba(0, 0, 0, 0.15);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;color:var(--dim);margin-top:0;height:44px;border-radius:12px;">Clear Asset Cache</button>
+                  <div id="purgeConfirmPopup" style="display:none;position:absolute;bottom:115%;left:50%;transform:translateX(-50%);background:rgba(0, 0, 0, 0.5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:8px;border-radius:12px;box-shadow:0 10px 20px rgba(0,0,0,.5);z-index:20;flex-direction:column;gap:8px;min-width:120px;text-align:center;">
+                    <span style="font-size:10px;color:var(--text);font-weight:600;">Confirm clear cache?</span>
+                    <button id="purgeConfirmBtn" class="btn" style="background:rgba(255,80,80,.15);color:#ff5555;">Clear</button>
+                  </div>
+                </div>
         <div class="status-row" id="configStatusRow" style="margin-top:4px;"></div>
       </div>
 </div>
