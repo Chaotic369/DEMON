@@ -8,7 +8,7 @@
 :root{
   --ink:#fcfaf5;
   --panel:#fcfaf5;
-  --field:#f1ede4;
+  --field:rgba(0,0,0,0.08);
   --hair:transparent;
   --text:#2d2a27;
   --dim:#857f78;
@@ -17,30 +17,29 @@
   --neu-flat:none;
   --neu-pressed:none;
   --neu-subtle:none;
-  --glass-bg:#fcfaf5;
+  --glass-bg:rgba(0,0,0,0.08);
   --glass-border:transparent;
   --glass-blur:none;
 }
 :root.dark-theme{
   --ink:#051316;
-  --panel:#0a1e24;
-  --field:#123038;
+  --panel:rgba(8, 18, 36, 0.8);
+  --field:rgba(0,0,0,0.25);
   --hair:transparent;
-  --text:#d8f4f7;
-  --dim:#6997a1;
+  --text:#ffffff;
+  --dim:rgba(255, 255, 255, 0.6);
   --accent:#00e5ff;
   --ok:#00ffa3;
   --neu-flat:none;
   --neu-pressed:none;
   --neu-subtle:none;
-  --glass-bg:#0a1e24;
+  --glass-bg:rgba(0,0,0,0.25);
   --glass-border:transparent;
   --glass-blur:none;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 ::selection{background:var(--accent);color:var(--ink);}
 html,body{min-height:100%;background:var(--ink);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
-body.test-bg{background:url('https://picsum.photos/1080/1920?random=1') center/cover no-repeat fixed !important;}
 body{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:0;margin:0;overflow:hidden;width:100vw;height:100dvh;}
 .stage{display:flex;flex-direction:column;align-items:center;width:100%;height:100%;}
 .phone{width:100%;height:100%;background:transparent;position:relative;}
@@ -49,28 +48,28 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:flex-
 .field-wrap{width:100%;}
 .field-wrap label{display:block;font-size:10px;color:var(--dim);margin-bottom:4px;font-weight:600;}
 input[type=text],select,button{-webkit-appearance:none;appearance:none;}
-input[type=text]{width:100%;height:38px;background:var(--field);border:none;border-radius:12px;color:var(--text);padding:0 14px;font-size:11px;outline:none !important;box-shadow:none !important;caret-color:var(--accent);}
+input[type=text]{width:100%;height:38px;background:var(--field);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:none;border-radius:12px;color:var(--text);padding:0 14px;font-size:11px;outline:none !important;box-shadow:none !important;caret-color:var(--accent);}
 input[type=text]::placeholder{color:var(--dim);}
 input[type=text]:focus{border:none;}
-.btn{width:100%;height:34px;border-radius:11px;border:none;cursor:pointer;font-size:10px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:6px;outline:none !important;background:var(--field);color:var(--text);box-shadow:none;}
+.btn{width:100%;height:34px;border-radius:11px;border:none;cursor:pointer;font-size:10px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:6px;outline:none !important;background:var(--field);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--text);box-shadow:none;}
 .btn-white{background:var(--field);}
 .btn:active{opacity:.8;}
 .btn-apply{background:var(--text) !important;color:var(--ink) !important;border:none !important;box-shadow:none !important;}
 .btn-apply:active{opacity:.9;}
 .btn-apply:disabled{background:var(--field) !important;color:var(--dim) !important;border:none !important;box-shadow:none !important;cursor:not-allowed;opacity:.5;}
-.toggle-wrap{display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px;background:var(--field);border:none;border-radius:14px;box-shadow:none;}
+.toggle-wrap{display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px;background:var(--field);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:none;border-radius:14px;box-shadow:none;}
 .toggle-label{font-size:10px;color:var(--text);font-weight:700;text-transform:uppercase;letter-spacing:.04em;}
 .toggle{position:relative;width:38px;height:20px;background:var(--field);border-radius:12px;border:none;cursor:pointer;box-shadow:none;}
 .toggle::after{content:'';position:absolute;inset:0;margin:auto 0 auto 2px;width:14px;height:14px;border-radius:50%;background:var(--dim);}
 .toggle.active{background:var(--text);border:none;}
 .toggle.active::after{transform:translateX(18px);background:var(--ink);}
 .toggle::before{content:'';display:block;width:100%;height:100%;}
-.segment-control{display:flex;width:100%;background:var(--field);border-radius:12px;padding:3px;gap:4px;box-shadow:none;border:none;}
-.seg-btn{flex:1;background:transparent;border:none;color:var(--dim);height:30px;border-radius:9px;font-size:10px;font-weight:700;cursor:pointer;text-transform:uppercase;}
+.segment-control{display:flex;width:100%;background:var(--field);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:12px;padding:3px;gap:4px;box-shadow:none;border:none;}
+.seg-btn{flex:1;background:transparent;border:none;color:var(--text);height:30px;border-radius:9px;font-size:10px;font-weight:700;cursor:pointer;text-transform:uppercase;}
 .seg-btn.active{background:var(--text);color:var(--ink);box-shadow:none;border:none;}
 .status-row{font-size:11px;color:var(--dim);text-align:center;min-height:20px;line-height:20px;margin-top:2px;font-weight:600;}
 .status-row.ok{color:var(--ok);}
-.history-item{aspect-ratio:9/16;background:var(--field);border-radius:12px;overflow:hidden;position:relative;cursor:pointer;box-shadow:none;border:none;}
+.history-item{aspect-ratio:9/16;background:var(--field);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:12px;overflow:hidden;position:relative;cursor:pointer;box-shadow:none;border:none;}
 .history-item:active{opacity:.9;}
 .history-item video{width:100%;height:100%;pointer-events:none;object-fit:cover;border:none;}
 .history-item iframe{width:400%;height:400%;transform:scale(.25);transform-origin:top left;pointer-events:none;border:none;}
@@ -89,16 +88,17 @@ input[type=text]:focus{border:none;}
 <div class="settings" id="mainSettings" style="padding-top:8px;">
   <div style="width:100%;display:flex;justify-content:flex-end;align-items:center;margin-bottom:4px;z-index:10;padding:4px 8px;gap:16px;">
       <svg id="bgPreviewBtn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;cursor:pointer;color:var(--text);" title="Try Background"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+      <input type="file" id="bgInput" accept="image/*" style="display:none;">
       <svg id="configBtn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;cursor:pointer;color:var(--text);"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
     </div>
 
   <div id="miniWrap" style="position:relative;width:100%;flex:none;height:52vh;margin:0 auto 14px;max-width:336px;align-self:center;">
-      <div style="position:absolute;inset:-8px;background:var(--field);border-radius:36px;z-index:0;"></div>
+      <div style="position:absolute;inset:-8px;background:var(--field);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:36px;z-index:0;"></div>
       <div id="miniBox" style="width:100%;height:100%;background:#000000;border-radius:28px;overflow:hidden;position:absolute;inset:0;z-index:1;">
-        <iframe id="miniFrame" style="width:100%;height:100%;border:none;display:none;position:absolute;top:0;left:0;transform-origin:top left;" sandbox="allow-scripts allow-same-origin"></iframe>
-        <video id="miniVideo" style="width:100%;height:100%;object-fit:cover;display:none;position:absolute;top:0;left:0;" autoplay loop muted playsinline></video>
-        <span id="miniLabel" style="color:#ffffff;background:rgba(255,255,255,0.1);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:18px;border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:1;display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></span>
-      </div>
+              <iframe id="miniFrame" style="width:100%;height:100%;border:none;display:none;position:absolute;top:0;left:0;transform-origin:top left;" sandbox="allow-scripts allow-same-origin"></iframe>
+              <video id="miniVideo" style="width:100%;height:100%;object-fit:cover;display:none;position:absolute;top:0;left:0;" autoplay loop muted playsinline></video>
+              <span id="miniLabel" style="color:#ffffff;background:rgba(0,0,0,0.25);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:18px;border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:1;display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></span>
+            </div>
       <button type="button" id="muteBtn" style="display:none;position:absolute;bottom:12px;right:12px;width:36px;height:36px;padding:0;border:none;background:var(--panel);color:var(--text);border-radius:18px;cursor:pointer;align-items:center;justify-content:center;z-index:2;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
         <svg id="muteIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
       </button>
@@ -126,9 +126,9 @@ input[type=text]:focus{border:none;}
   </div>
 
   <div id="fileWrap" style="display:none;text-align:center;padding:0;height:40px;width:100%;max-width:360px;margin:6px auto 0;">
-    <label style="cursor:pointer;color:var(--text);font-size:11px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:600;text-transform:uppercase;letter-spacing:.02em;background:var(--field);padding:0 16px;height:40px;width:100%;border-radius:13px;">
+    <label style="cursor:pointer;color:var(--text);font-size:11px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:600;text-transform:uppercase;letter-spacing:.02em;background:var(--field);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:0 16px;height:40px;width:100%;border-radius:13px;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;color:var(--accent);"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-      <span id="fileNameDisplay" style="overflow:hidden;text-overflow:ellipsis;max-width:200px;white-space:nowrap;color:var(--dim);line-height:1;">Upload Video</span>
+      <span id="fileNameDisplay" style="overflow:hidden;text-overflow:ellipsis;max-width:200px;white-space:nowrap;color:var(--text);line-height:1;">Upload Video</span>
       <input type="file" id="fileInput" accept="video/*" style="display:none;">
     </label>
   </div>
@@ -150,7 +150,7 @@ input[type=text]:focus{border:none;}
     <button id="configBackBtn" style="background:transparent;border:none;color:var(--accent);font-size:12px;cursor:pointer;font-weight:700;display:flex;align-items:center;gap:4px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Back</button>
   </div>
   <div style="display:flex;flex-direction:column;gap:10px;">
-      <div class="card-group" style="background:var(--field);border-radius:14px;padding:14px;gap:0;">
+      <div class="card-group" style="background:var(--field);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:14px;padding:14px;gap:0;">
               <div style="font-size:9px;color:var(--dim);font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:0 0 10px;">Playback</div>
         <div style="display:flex;gap:8px;width:100%;">
           <div class="field-wrap" style="flex:1;position:relative;">
@@ -177,7 +177,7 @@ input[type=text]:focus{border:none;}
       <div class="card-group">
               <div class="toggle-wrap"><span class="toggle-label">Dark Theme</span><div class="toggle" id="themeToggle"></div></div>
               <div class="toggle-wrap"><span class="toggle-label">Pause When Not In Use</span><div class="toggle active" id="obsToggle"></div></div>
-              <div style="display:flex;flex-direction:column;background:var(--field);border-radius:14px;overflow:hidden;">
+              <div style="display:flex;flex-direction:column;background:var(--field);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:14px;overflow:hidden;">
                         <div class="toggle-wrap" style="background:transparent;border-radius:0;"><span class="toggle-label">Battery Saver</span>
                           <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;"><span id="batPercentVal" style="font-size:9px;color:var(--dim);font-weight:700;">20%</span><div class="toggle active" id="batToggle" style="flex-shrink:0;"></div></div>
                         </div>
@@ -259,15 +259,18 @@ function restore(){
 /* ---------- theme / config navigation ---------- */
 function setDark(d){
   document.documentElement.classList.toggle('dark-theme',d);
-  if($('themeToggle')) $('themeToggle').classList.toggle('active',d);
+  if($('themeToggle'))$('themeToggle').classList.toggle('active',d);
   localStorage.setItem('dark',d?'1':'0');
   if(A) A.setTheme(d);
 }
-$('bgPreviewBtn').addEventListener('click',()=>{ document.body.classList.toggle('test-bg'); });
-$('configBtn').addEventListener('click',()=>{ mainSettings.style.display='none'; configView.style.display='flex'; });
-$('configBackBtn').addEventListener('click',()=>{ configView.style.display='none'; mainSettings.style.display='flex'; });
-$('historyBtn').addEventListener('click',()=>{ mainSettings.style.display='none'; historyView.style.display='flex'; });
-$('backBtn').addEventListener('click',()=>{ historyView.style.display='none'; mainSettings.style.display='flex'; });
+$('bgPreviewBtn').addEventListener('click',()=>{ $('bgInput').click(); });$('bgInput').addEventListener('change',e=>{
+  if(e.target.files.length>0){
+    const u=URL.createObjectURL(e.target.files[0]);
+    document.body.style.background=`url(${u}) center/cover no-repeat fixed`;
+  }
+});
+$('configBtn').addEventListener('click',()=>{ mainSettings.style.display='none'; configView.style.display='flex'; });$('configBackBtn').addEventListener('click',()=>{ configView.style.display='none'; mainSettings.style.display='flex'; });
+$('historyBtn').addEventListener('click',()=>{ mainSettings.style.display='none'; historyView.style.display='flex'; });$('backBtn').addEventListener('click',()=>{ historyView.style.display='none'; mainSettings.style.display='flex'; });
 // called by native back button; returns true if a sub screen was closed
 window.nativeBack=function(){
   if(configView.style.display==='flex'){ $('configBackBtn').click(); return true; }
@@ -362,11 +365,11 @@ function setType(t){
   urlWrap.style.display = t==='web' ? 'flex':'none';
   fileWrap.style.display = t==='web' ? 'none':'block';
   if(t!=='web'){
-    fileInput.accept = t==='video' ? 'video/*' : '.html,text/html';
-    fileInput.value='';
-    fileNameDisplay.textContent = t==='video' ? 'Upload Video':'Upload HTML';
-    fileNameDisplay.style.color='var(--dim)';
-  }
+      fileInput.accept = t==='video' ? 'video/*' : '.html,text/html';
+      fileInput.value='';
+      fileNameDisplay.textContent = t==='video' ? 'Upload Video':'Upload HTML';
+      fileNameDisplay.style.color='var(--text)';
+    }
 }
 btnTypeWeb.addEventListener('click',()=>setType('web'));
 btnTypeVideo.addEventListener('click',()=>setType('video'));
