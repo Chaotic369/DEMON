@@ -6,85 +6,79 @@
 <title>Web Wallpaper</title>
 <style>
 :root{
-  --bg-gradient: radial-gradient(140% 100% at 50% 0%, #17212b 0%, #0d1217 60%, #080b0e 100%);
-  --surface-base: #11171d;
-  --card-bg: rgba(19, 27, 35, 0.75);
-  --card-border: rgba(0, 245, 160, 0.12);
-  --card-border-focus: #00f5a0;
-  --ink: #080b0e;
-  --panel: #11171d;
-  --field: #141c24;
-  --hair: rgba(255, 255, 255, 0.07);
-  --text: #f0fdf4;
-  --dim: #708597;
-  --accent: #00f5a0;
-  --accent-gradient: linear-gradient(135deg, #00f5a0 0%, #00d9f5 100%);
-  --ok: #00f5a0;
+  --ink:#ffffff;
+  --panel:#ffffff;
+  --field:#f5f5f5;
+  --hair:transparent;
+  --text:#111111;
+  --dim:#666666;
+  --accent:#000000;
+  --ok:#000000;
+  --neu-flat:none;
+  --neu-pressed:none;
+  --neu-subtle:none;
+  --glass-bg:#ffffff;
+  --glass-border:transparent;
+  --glass-blur:none;
 }
 :root.dark-theme{
-  --bg-gradient: radial-gradient(140% 100% at 50% 0%, #0f1821 0%, #070a0d 65%, #030507 100%);
-  --surface-base: #0a0f14;
-  --card-bg: rgba(12, 18, 24, 0.85);
-  --card-border: rgba(0, 245, 160, 0.08);
-  --card-border-focus: #00d9f5;
-  --ink: #030507;
-  --panel: #0a0f14;
-  --field: #0d141a;
-  --hair: rgba(255, 255, 255, 0.05);
-  --text: #e6faf2;
-  --dim: #5c7080;
-  --accent: #00d9f5;
-  --accent-gradient: linear-gradient(135deg, #00d9f5 0%, #00f5a0 100%);
-  --ok: #00f5a0;
+  --ink:#000000;
+  --panel:#121212;
+  --field:#181818;
+  --hair:transparent;
+  --text:#ffffff;
+  --dim:#888888;
+  --accent:#ffffff;
+  --ok:#ffffff;
+  --neu-flat:none;
+  --neu-pressed:none;
+  --neu-subtle:none;
+  --glass-bg:#121212;
+  --glass-border:transparent;
+  --glass-blur:none;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-::selection{background:rgba(0, 245, 160, 0.35);color:#ffffff;}
-html,body{min-height:100%;background:var(--bg-gradient);background-attachment:fixed;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"JetBrains Mono","SF Pro Display","Segoe UI",Roboto,monospace;}
+::selection{background:var(--accent);color:var(--ink);}
+html,body{min-height:100%;background:var(--ink);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
 body{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:0;margin:0;overflow:hidden;width:100vw;height:100dvh;}
 .stage{display:flex;flex-direction:column;align-items:center;width:100%;height:100%;}
 .phone{width:100%;height:100%;background:transparent;position:relative;}
-.screen{background:transparent;overflow:hidden;height:100%;width:100%;display:flex;flex-direction:column;position:relative;padding-top:0;}
-.settings{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:12px 20px 24px;background:transparent;gap:14px;overflow-y:auto;}
+.screen{background:transparent;overflow:hidden;height:100%;width:100%;display:flex;flex-direction:column;position:relative;padding-top:4vh;}
+.settings{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:4px 20px 24px;background:transparent;gap:12px;overflow-y:auto;}
 .field-wrap{width:100%;}
-.field-wrap label{display:block;font-size:10px;color:var(--dim);margin-bottom:6px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
+.field-wrap label{display:block;font-size:10px;color:var(--dim);margin-bottom:4px;font-weight:600;}
 input[type=text],select,button{-webkit-appearance:none;appearance:none;}
-input[type=text]{width:100%;height:44px;background:var(--field);border:1px solid var(--hair);border-radius:12px;color:var(--text);padding:0 14px;font-size:12px;font-weight:500;outline:none !important;box-shadow:inset 0 1px 3px rgba(0,0,0,0.6) !important;caret-color:var(--accent);transition:all .2s ease;}
-input[type=text]::placeholder{color:var(--dim);opacity:.7;}
-input[type=text]:focus{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent), 0 0 12px rgba(0,245,160,0.25) !important;}
-.btn{width:100%;height:38px;border-radius:10px;border:1px solid var(--hair);cursor:pointer;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:6px;transition:all .2s cubic-bezier(0.4,0,0.2,1);outline:none !important;background:var(--card-bg);color:var(--text);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 4px 12px rgba(0,0,0,0.3);}
-.btn-white{background:var(--card-bg);}
-.btn:hover{border-color:rgba(0,245,160,0.35);color:var(--accent);transform:translateY(-1px);}
-.btn:active{transform:scale(.97);background:var(--field);}
-.btn-apply{background:var(--accent-gradient) !important;border:none !important;color:#051410 !important;font-weight:900 !important;letter-spacing:.1em !important;box-shadow:0 0 25px rgba(0,245,160,0.45), 0 6px 16px rgba(0,0,0,0.6) !important;}
-.btn-apply:hover{box-shadow:0 0 35px rgba(0,245,160,0.65), 0 8px 20px rgba(0,0,0,0.8) !important;}
-.btn-apply:active{transform:scale(.97) !important;}
-.btn-apply:disabled{background:var(--field) !important;color:var(--dim) !important;box-shadow:none !important;cursor:not-allowed;opacity:.35;}
-.toggle-wrap{display:flex;align-items:center;justify-content:space-between;width:100%;padding:12px 16px;background:var(--card-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--hair);border-radius:14px;box-shadow:0 4px 14px rgba(0,0,0,0.25);transition:all .2s ease;}
-.toggle-wrap:hover{border-color:rgba(0,245,160,0.2);}
-.toggle-label{font-size:11px;color:var(--text);font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
-.toggle{position:relative;width:42px;height:24px;background:#0d141b;border-radius:12px;border:1px solid var(--hair);cursor:pointer;transition:all .25s cubic-bezier(0.4,0,0.2,1);}
-.toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:8px;background:var(--dim);transition:all .25s cubic-bezier(0.4,0,0.2,1);}
-.toggle.active{background:rgba(0,245,160,0.18);border-color:var(--accent);}
-.toggle.active::after{transform:translateX(18px);background:var(--accent);box-shadow:0 0 10px var(--accent);}
+input[type=text]{width:100%;height:38px;background:var(--field);border:none;border-radius:12px;color:var(--text);padding:0 14px;font-size:11px;outline:none !important;box-shadow:none !important;caret-color:var(--accent);}
+input[type=text]::placeholder{color:var(--dim);}
+input[type=text]:focus{border:none;}
+.btn{width:100%;height:34px;border-radius:11px;border:none;cursor:pointer;font-size:10px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:6px;outline:none !important;background:var(--field);color:var(--text);box-shadow:none;}
+.btn-white{background:var(--field);}
+.btn:active{opacity:.8;}
+.btn-apply{background:var(--text) !important;color:var(--ink) !important;border:none !important;box-shadow:none !important;}
+.btn-apply:active{opacity:.9;}
+.btn-apply:disabled{background:var(--field) !important;color:var(--dim) !important;border:none !important;box-shadow:none !important;cursor:not-allowed;opacity:.5;}
+.toggle-wrap{display:flex;align-items:center;justify-content:space-between;width:100%;padding:10px 14px;background:var(--glass-bg);border:none;border-radius:14px;box-shadow:none;}
+.toggle-label{font-size:10px;color:var(--text);font-weight:700;text-transform:uppercase;letter-spacing:.04em;}
+.toggle{position:relative;width:38px;height:20px;background:var(--field);border-radius:12px;border:none;cursor:pointer;box-shadow:none;}
+.toggle::after{content:'';position:absolute;inset:0;margin:auto 0 auto 2px;width:14px;height:14px;border-radius:50%;background:var(--dim);}
+.toggle.active{background:var(--text);border:none;}
+.toggle.active::after{transform:translateX(18px);background:var(--ink);}
 .toggle::before{content:'';display:block;width:100%;height:100%;}
-.segment-control{display:flex;width:100%;background:rgba(10,15,20,0.8);border-radius:12px;padding:4px;gap:4px;border:1px solid var(--hair);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
-.seg-btn{flex:1;background:transparent;border:none;color:var(--dim);height:32px;border-radius:8px;font-size:11px;font-weight:800;letter-spacing:.06em;cursor:pointer;transition:all .2s ease;}
-.seg-btn.active{background:rgba(0,245,160,0.12);color:var(--accent);border:1px solid rgba(0,245,160,0.3);box-shadow:0 0 12px rgba(0,245,160,0.15);}
-.status-row{font-size:11px;color:var(--dim);text-align:center;min-height:20px;line-height:20px;margin-top:2px;font-weight:600;letter-spacing:.04em;transition:opacity .2s ease;}
-.status-row.ok{color:var(--ok);text-shadow:0 0 8px rgba(0,245,160,0.5);}
-.history-item{aspect-ratio:9/16;background:var(--field);border-radius:12px;overflow:hidden;position:relative;cursor:pointer;transition:all .2s ease;border:1px solid var(--hair);box-shadow:0 6px 16px rgba(0,0,0,0.3);}
-.history-item:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,245,160,0.25);}
-.history-item:active{transform:scale(0.96);}
+.segment-control{display:flex;width:100%;background:var(--field);border-radius:12px;padding:3px;gap:4px;box-shadow:none;border:none;}
+.seg-btn{flex:1;background:transparent;border:none;color:var(--dim);height:30px;border-radius:9px;font-size:10px;font-weight:700;cursor:pointer;text-transform:uppercase;}
+.seg-btn.active{background:var(--text);color:var(--ink);box-shadow:none;border:none;}
+.status-row{font-size:11px;color:var(--dim);text-align:center;min-height:20px;line-height:20px;margin-top:2px;font-weight:600;}
+.status-row.ok{color:var(--ok);}
+.history-item{aspect-ratio:9/16;background:var(--field);border-radius:12px;overflow:hidden;position:relative;cursor:pointer;box-shadow:none;border:none;}
+.history-item:active{opacity:.9;}
 .history-item video{width:100%;height:100%;pointer-events:none;object-fit:cover;border:none;}
 .history-item iframe{width:400%;height:400%;transform:scale(.25);transform-origin:top left;pointer-events:none;border:none;}
-.history-type{position:absolute;bottom:6px;left:6px;background:rgba(8,11,14,0.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--accent);font-size:8px;padding:3px 6px;border-radius:4px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(0,245,160,0.25);}
-#themeBtn,#configBtn{width:36px !important;height:36px !important;min-width:36px !important;min-height:36px !important;box-sizing:border-box !important;padding:8px !important;border-radius:10px !important;background:var(--card-bg);border:1px solid var(--hair);color:var(--text);display:inline-flex;align-items:center;justify-content:center;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 4px 12px rgba(0,0,0,0.3);transition:all .2s ease;flex-shrink:0;}
-#themeBtn:hover,#configBtn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px);box-shadow:0 0 12px rgba(0,245,160,0.2);}
-#themeBtn:active,#configBtn:active{transform:scale(.92);}
-#miniBox{box-shadow:0 24px 60px -10px rgba(0,0,0,0.9), 0 0 0 1px rgba(0,245,160,0.18) !important;border:none;}
+.history-type{position:absolute;bottom:4px;left:4px;background:rgba(0,0,0,0.75);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);color:#ffffff;font-size:8px;padding:2px 5px;border-radius:5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;}
+#themeBtn,#configBtn{width:32px !important;height:32px !important;box-sizing:border-box !important;padding:7px !important;border-radius:50% !important;background:var(--field);box-shadow:none;border:none;color:var(--text);display:flex;align-items:center;justify-content:center;}
+#themeBtn:active,#configBtn:active{opacity:.8;}
+#miniBox{box-shadow:none !important;border:none;}
 .card-group{display:flex;flex-direction:column;gap:10px;width:100%;}
-.control-row{display:flex;gap:10px;width:100%;max-width:360px;margin:0 auto;justify-content:center;align-items:center;position:relative;z-index:15;}
-.control-row > button,.control-row > div{position:relative;}
+.control-row{display:flex;gap:10px;width:100%;max-width:360px;margin:0 auto;justify-content:center;align-items:center;}
 </style>
 </head>
 <body>
@@ -98,7 +92,7 @@ input[type=text]:focus{border-color:var(--accent);box-shadow:0 0 0 1px var(--acc
   </div>
 
   <div id="miniWrap" style="position:relative;width:100%;flex:none;height:52vh;margin:0 auto 14px;max-width:336px;align-self:center;">
-    <div id="miniBox" style="width:100%;height:100%;background:#000;border-radius:28px;overflow:hidden;position:absolute;inset:0;box-shadow:0 14px 36px rgba(0,0,0,.25);">
+    <div id="miniBox" style="width:100%;height:100%;background:#000000;border:1px solid #333333;border-radius:28px;overflow:hidden;position:absolute;inset:0;">
       <iframe id="miniFrame" style="width:100%;height:100%;border:none;display:none;position:absolute;top:0;left:0;transform-origin:top left;" sandbox="allow-scripts allow-same-origin"></iframe>
       <video id="miniVideo" style="width:100%;height:100%;object-fit:cover;display:none;position:absolute;top:0;left:0;" autoplay loop muted playsinline></video>
       <span id="miniLabel" style="color:var(--text);background:rgba(0,0,0,.4);padding:12px;border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:1;display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></span>
@@ -109,14 +103,14 @@ input[type=text]:focus{border-color:var(--accent);box-shadow:0 0 0 1px var(--acc
   </div>
 
   <div class="control-row">
-      <button class="btn btn-white" id="historyBtn" style="width:40px;height:40px;min-width:40px;min-height:40px;border-radius:12px;flex:none;box-sizing:border-box;margin:0;" title="History"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></button>
-      <div class="segment-control" style="flex:1;height:40px;box-sizing:border-box;margin:0;">
-        <button class="seg-btn active" id="btnTypeWeb">Web</button>
-        <button class="seg-btn" id="btnTypeVideo">Video</button>
-        <button class="seg-btn" id="btnTypeHtml">HTML</button>
-      </div>
-      <div style="position:relative;display:flex;align-items:center;">
-        <button class="btn btn-white" id="zoomBtn" style="width:40px;height:40px;min-width:40px;min-height:40px;border-radius:12px;flex:none;box-sizing:border-box;margin:0;" title="Zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></button>
+    <button class="btn btn-white" id="historyBtn" style="width:36px;height:36px;border-radius:11px;flex:none;" title="History"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></button>
+    <div class="segment-control" style="flex:1;height:36px;">
+      <button class="seg-btn active" id="btnTypeWeb">Web</button>
+      <button class="seg-btn" id="btnTypeVideo">Video</button>
+      <button class="seg-btn" id="btnTypeHtml">HTML</button>
+    </div>
+    <div style="position:relative;display:flex;">
+      <button class="btn btn-white" id="zoomBtn" style="width:36px;height:36px;border-radius:11px;flex:none;" title="Zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></button>
       <div id="zoomPopup" style="display:none;position:absolute;bottom:115%;left:50%;transform:translateX(-50%);background:var(--panel);padding:8px;border-radius:12px;box-shadow:0 10px 20px rgba(0,0,0,.5),inset 0 0 0 1px var(--hair);z-index:20;flex-direction:column;gap:8px;align-items:center;">
         <div style="display:flex;width:100px;align-items:center;justify-content:center;height:22px;"><input type="range" id="zoomSlider" min="0.25" max="1.25" step="0.05" value="1" style="width:100%;height:4px;background:var(--hair);border-radius:2px;outline:none;-webkit-appearance:none;appearance:none;accent-color:var(--text);"></div>
         <div style="display:flex;align-items:center;background:var(--field);border-radius:8px;padding:2px 8px;"><input type="text" inputmode="decimal" id="zoomInput" value="1" style="width:28px;height:20px;background:transparent !important;border:none;color:var(--text);font-size:10px;font-weight:700;text-align:center;outline:none !important;box-shadow:none !important;padding:0;"><span style="color:var(--dim);font-size:9px;font-weight:700;">x</span></div>
@@ -149,8 +143,8 @@ input[type=text]:focus{border-color:var(--accent);box-shadow:0 0 0 1px var(--acc
 </div>
 
 <!-- CONFIG -->
-<div id="configView" style="display:none;flex-direction:column;background:transparent;height:100%;padding:16px;overflow-y:auto;">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-top:0;">
+<div id="configView" style="display:none;flex-direction:column;background:var(--ink);height:100%;padding:16px;overflow-y:auto;">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-top:24px;">
     <button id="configBackBtn" style="background:transparent;border:none;color:var(--accent);font-size:12px;cursor:pointer;font-weight:700;display:flex;align-items:center;gap:4px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Back</button>
   </div>
   <div style="display:flex;flex-direction:column;gap:10px;">
@@ -202,8 +196,8 @@ input[type=text]:focus{border-color:var(--accent);box-shadow:0 0 0 1px var(--acc
 </div>
 
 <!-- HISTORY -->
-<div id="historyView" style="display:none;flex-direction:column;background:transparent;height:100%;padding:16px;overflow-y:auto;">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-top:0;">
+<div id="historyView" style="display:none;flex-direction:column;background:var(--ink);height:100%;padding:16px;">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-top:24px;">
     <button id="backBtn" style="background:transparent;border:none;color:var(--accent);font-size:12px;cursor:pointer;font-weight:700;display:flex;align-items:center;gap:4px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Back</button>
     <div style="position:relative;display:flex;">
       <button id="clearHistoryBtn" style="background:transparent;border:none;color:var(--dim);font-size:10px;cursor:pointer;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:4px 8px;border-radius:8px;"><span>Clear All</span></button>
@@ -234,7 +228,7 @@ const btnTypeWeb=$('btnTypeWeb'), btnTypeVideo=$('btnTypeVideo'), btnTypeHtml=$(
 const scaleSelect={value:'Center Crop'}, fpsSelect={value:'Default'};
 const zoomInput=$('zoomInput'), zoomSlider=$('zoomSlider');
 
-let savedUrl='', savedType='web', currentType='web', currentZoom=1, historyList=[];
+let savedUrl='', savedType='web', currentType='web', currentZoom=1, historyList=[], urlDebounceTimer=null;
 
 function msg(el, text, ms=3000){ el.textContent=text; el.className='status-row ok'; setTimeout(()=>{ if(el.textContent===text) el.textContent=''; }, ms); }
 
@@ -404,9 +398,16 @@ function saveAndPreview(){
   showPreview();
   applyBtn.disabled=false; msg(statusRow,'Saved');
 }
-urlInput.addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); saveAndPreview(); } });
-$('urlGoBtn').addEventListener('click',saveAndPreview);
-urlInput.addEventListener('input',()=>{ $('urlGoBtn').style.display=urlInput.value.trim().length>0?'flex':'none'; });
+urlInput.addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); clearTimeout(urlDebounceTimer); saveAndPreview(); } });
+$('urlGoBtn').addEventListener('click',()=>{ clearTimeout(urlDebounceTimer); saveAndPreview(); });
+urlInput.addEventListener('input',()=>{
+  const val=urlInput.value.trim();
+  $('urlGoBtn').style.display=val.length>0?'flex':'none';
+  clearTimeout(urlDebounceTimer);
+  if(currentType==='web' && val.length>3 && val.includes('.')){
+    urlDebounceTimer=setTimeout(()=>{ saveAndPreview(); }, 600);
+  }
+});
 
 /* ---------- apply ---------- */
 applyBtn.addEventListener('click',e=>{
