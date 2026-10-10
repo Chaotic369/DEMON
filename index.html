@@ -41,8 +41,8 @@
 ::selection{background:var(--accent);color:var(--ink);}
 html,body{min-height:100%;background:var(--ink);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
 body{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:0;margin:0;overflow:hidden;width:100vw;height:100dvh;}
-.stage{display:flex;flex-direction:column;align-items:center;width:100%;height:100%;background:inherit;}
-.phone{width:100%;height:100%;background:inherit;background-size:cover;background-position:center;background-repeat:no-repeat;position:relative;}
+.stage{display:flex;flex-direction:column;align-items:center;width:100%;height:100%;}
+.phone{width:100%;height:100%;background:transparent;position:relative;}
 .screen{background:transparent;overflow:hidden;height:100%;width:100%;display:flex;flex-direction:column;position:relative;padding-top:0;}
 .settings{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:4px 20px 24px;background:transparent;gap:12px;overflow-y:auto;}
 .field-wrap{width:100%;}
@@ -409,6 +409,37 @@ btnTypeHtml.addEventListener('click',()=>setType('html'));
 const origCOU=URL.createObjectURL.bind(URL);
 URL.createObjectURL=function(o){ if(window.__pendingNative){ const u=window.__pendingNative; window.__pendingNative=null; return u; } return origCOU(o); };
 
+
+/* ---------- custom background wallpaper ---------- */
+function applyCustomWallpaper(url){
+  if(!url) return;
+  const bg = `url("${url}") center/cover no-repeat`;
+  document.body.style.background = bg;
+  const mb = $('miniBox');
+  if(mb) mb.style.background = bg;
+  ['wallpaper','customWallpaper','customBg','bgImage'].forEach(k=>localStorage.setItem(k, url));
+}
+const savedWallpaper = localStorage.getItem('wallpaper') || localStorage.getItem('customWallpaper') || localStorage.getItem('customBg') || localStorage.getItem('bgImage');
+if(savedWallpaper) applyCustomWallpaper(savedWallpaper);
+
+new MutationObserver(()=>{
+  const mb = $('miniBox');
+  if(mb && document.body.style.background && mb.style.background !== document.body.style.background){
+    mb.style.background = document.body.style.background;
+  }
+}).observe(document.body, { attributes: true, attributeFilter: ['style'] });
+
+document.addEventListener('change', e=>{
+  const t = e.target;
+  if(t && t.type==='file' && t.files && t.files[0]){
+    const f = t.files[0];
+    if(f.type.startsWith('image/') || (t.accept && t.accept.includes('image')) || /bg|wallpaper/i.test(t.id)){
+      const reader = new FileReader();
+      reader.onload = ev=>applyCustomWallpaper(ev.target.result);
+      reader.readAsDataURL(f);
+    }
+  }
+});
 fileInput.addEventListener('change',()=>{
   if(fileInput.files.length>0){
     fileNameDisplay.textContent=fileInput.files[0].name; fileNameDisplay.style.color='var(--text)'; saveAndPreview();
