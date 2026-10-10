@@ -115,11 +115,12 @@ input[type=text]:focus{border:none;}
   const bgBtn = document.getElementById('bgWallBtn');
   const bgInput = document.getElementById('bgWallInput');
   const savedBg = localStorage.getItem('bgWallpaper');
+  function applyBg(url) {
+    document.body.style.background = 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(' + url + ') center/cover no-repeat';
+  }
+  window.applyBg = applyBg;
   if (savedBg) {
-    document.body.style.backgroundImage = 'url(' + savedBg + ')';
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundPosition = 'center';
-    document.body.style.backgroundRepeat = 'no-repeat';
+    applyBg(savedBg);
   }
   if (bgBtn && bgInput) {
     bgBtn.addEventListener('click', function() {
@@ -131,10 +132,7 @@ input[type=text]:focus{border:none;}
       const reader = new FileReader();
       reader.onload = function(evt) {
         const dataUrl = evt.target.result;
-        document.body.style.backgroundImage = 'url(' + dataUrl + ')';
-        document.body.style.backgroundSize = 'cover';
-        document.body.style.backgroundPosition = 'center';
-        document.body.style.backgroundRepeat = 'no-repeat';
+        applyBg(dataUrl);
         localStorage.setItem('bgWallpaper', dataUrl);
       };
       reader.readAsDataURL(file);
